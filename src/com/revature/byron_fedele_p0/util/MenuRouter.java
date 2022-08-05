@@ -24,17 +24,16 @@ public class MenuRouter {//this class will hold all the menus that my applicatio
         }
     }
 
-    public void transfer(String route){
-        for(Menu menu: menus){
-            if(menu == null) break;
-            if(menu.getRoute().equals(route)){
+    public void transfer(String route){ // the parameter here is the route which will be how we get to the menu we want to go to
+        for(Menu menu: menus){ //enhanced for loop to go through each menu
+            if(menu == null) break; // if you find a null element break the loop
+            if(menu.getRoute().equals(route)){ // if the elements' route equals the input parameter
                 try {
-                    menu.render();
-                } catch (IOException e){
+                    menu.render(); // run the method render for that menu, each menu has a different implementation
+                } catch (IOException e){// if there is an IO Exception, print to the console what is wrong
                     e.printStackTrace();
                 }
             }
         }
     }
-
 }
