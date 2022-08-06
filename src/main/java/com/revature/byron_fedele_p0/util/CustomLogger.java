@@ -23,7 +23,7 @@ public class CustomLogger {
         Writer writer = null;
         this.printToConsole = printToConsole;
         try {
-            writer = new FileWriter("resources/log.txt", true);
+            writer = new FileWriter("src/main/resources/log.txt", true);
         } catch (IOException e) {
             //printMessageToConsole("ERROR", "Could not open connection to file. Only printing logs to console.");
         }

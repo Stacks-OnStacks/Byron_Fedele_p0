@@ -1,3 +1,6 @@
 out
 .idea
 byron_fedele_p0.iml
+.DS_Store
+src/.DS_Store
+src/main/.DS_Store
