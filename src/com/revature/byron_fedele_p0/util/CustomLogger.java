@@ -41,8 +41,8 @@ public class CustomLogger {
     private String formatMessage(String level, String message) {
         return String.format("[%s] %s at %s", level, message, LocalDateTime.now());
     }
-    //The logMessageToFile method will write the formattedMessage into resources/log.txt
-    private void logMessageToFile(String formattedMessage) {
+    //The logMessageToFile method will write the formattedMessage into resources/log.txt, has to be public to be accessed by classes in other  packages
+    public void logMessageToFile(String formattedMessage) {
         if (logWriter != null) {
             try {
                 logWriter.write(formattedMessage + "\n");

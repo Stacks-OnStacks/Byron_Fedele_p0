@@ -5,7 +5,7 @@ import java.io.IOException;
 import com.revature.byron_fedele_p0.util.CustomLogger; //importing Custom Logger class
 import com. revature.byron_fedele_p0.util.MenuRouter; //importing MenuRouter class
 
-public abstract class Menu { // abstract classs
+public abstract class Menu { // abstract class means methods will not be concretely defined here, but its children will be required to
     protected String name; // Protected keyword only allows any class within the package or child-class to have access to this attribute
     protected String route;
     protected BufferedReader terminalReader; //Dependency Injection - as a requirement for the class to function that you want to inject at Instantiate
