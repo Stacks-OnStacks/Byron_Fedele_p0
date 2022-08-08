@@ -1,5 +1,6 @@
 package com.revature.byron_fedele_p0.util;
 //this imports the builtin Java classes needed for this class
+
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -29,18 +30,21 @@ public class CustomLogger {
         }
         this.logWriter = writer;
     }
+
     public static CustomLogger getLogger(boolean printToConsole) {
         // CustomLogger will not be created until it is needed
-        if(logger == null) {
+        if (logger == null) {
             logger = new CustomLogger(printToConsole);
         }
         return logger;
     }
+
     /* the formatMessage method returns a string with the type of log aka "level" in brackets [],
     followed by the message which is also parameter of this method, and the time that it occurred  */
     private String formatMessage(String level, String message) {
         return String.format("[%s] %s at %s", level, message, LocalDateTime.now());
     }
+
     //The logMessageToFile method will write the formattedMessage into resources/log.txt, has to be public to be accessed by classes in other  packages
     public void logMessageToFile(String formattedMessage) {
         if (logWriter != null) {
@@ -52,6 +56,7 @@ public class CustomLogger {
             }
         }
     }
+
     // printMessageToConsole method will print the message parameter into console with type of log aka "level" with the corresponding color
     private void printMessageToConsole(String level, String message) {
         switch (level) {
@@ -68,27 +73,32 @@ public class CustomLogger {
         }
 
     }
+
     /*the following methods [info,warn,error,fatal] will log and print to console the activity that occurs as the program is running
     when they are called
      */
-    public void info(String message, Object...extra) { // the Object... extra is in case we want to pass multiple values inside our message when we format
+    public void info(String message, Object... extra) { // the Object... extra is in case we want to pass multiple values inside our message when we format
         String formattedMessage = formatMessage("INFO", String.format(message, extra)); // creates a string with the message provided, the extra is for a case like String.format("[%s] %s at %s", level, message, LocalDateTime.now())
         logMessageToFile(formattedMessage);//actually logs in the message to the log.txt file
-        if(printToConsole) printMessageToConsole("INFO", formattedMessage); //if printToConsole is True, also put the same formattedMessage into console
+        if (printToConsole)
+            printMessageToConsole("INFO", formattedMessage); //if printToConsole is True, also put the same formattedMessage into console
     }
-    public void warn(String message, Object...extra) {
+
+    public void warn(String message, Object... extra) {
         String formattedMessage = formatMessage("WARN", String.format(message, extra));
         logMessageToFile(formattedMessage);
-        if(printToConsole) printMessageToConsole("WARN", formattedMessage);
+        if (printToConsole) printMessageToConsole("WARN", formattedMessage);
     }
-    public void error(String message, Object...extra) {
+
+    public void error(String message, Object... extra) {
         String formattedMessage = formatMessage("ERROR", String.format(message, extra));
         logMessageToFile(formattedMessage);
-        if(printToConsole) printMessageToConsole("ERROR", formattedMessage);
+        if (printToConsole) printMessageToConsole("ERROR", formattedMessage);
     }
-    public void fatal(String message, Object...extra) {
+
+    public void fatal(String message, Object... extra) {
         String formattedMessage = formatMessage("FATAL", String.format(message, extra));
         logMessageToFile(formattedMessage);
-        if(printToConsole) printMessageToConsole("FATAL", formattedMessage);
+        if (printToConsole) printMessageToConsole("FATAL", formattedMessage);
     }
 }

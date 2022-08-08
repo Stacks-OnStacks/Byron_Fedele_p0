@@ -39,7 +39,7 @@ public class ConnectionFactory {
     public Connection getConnection(){
         try {
             return DriverManager.getConnection(props.getProperty("url"), props.getProperty("username"), props.getProperty("password")); // return the connection
-        } catch (SQLException e) {
+        } catch (SQLException e) { //otherwise let us know what wrong and return null because we have to return something since this is not a void method
             e.printStackTrace();
             return null;
         }
