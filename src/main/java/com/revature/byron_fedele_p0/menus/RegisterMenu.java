@@ -25,7 +25,6 @@ public class RegisterMenu extends Menu{
     public void render() throws IOException{
         System.out.print("Please enter email: \n>"); // \n is a new line character, aka return or enter
         String email = terminalReader.readLine();
-
         System.out.print("Please enter your password: \n>");
         String password = terminalReader.readLine();
         Member newMember = new Member(email,password);

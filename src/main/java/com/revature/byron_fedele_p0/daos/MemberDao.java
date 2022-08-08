@@ -19,7 +19,7 @@ public class MemberDao implements Crudable<Member> {
     @Override
     public Member create(Member newMember) {
         try (Connection conn = ConnectionFactory.getConnectionFactory().getConnection()){
-            String sql = "insert into members (email, password) values (?,?)"; // we want to set up for a preparedStatement (this prevents SQL injection)
+            String sql = "insert into members (email, password,balance) values (?,?,?)"; // we want to set up for a preparedStatement (this prevents SQL injection)
 
             // ; drop table members will be prevented
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -27,7 +27,7 @@ public class MemberDao implements Crudable<Member> {
             // our ps now needs to be adjusted with the appropriate values instead of the ?
             ps.setString(1, newMember.getEmail());
             ps.setString(2, newMember.getPassword());
-
+            ps.setInt(3,0);
             // at this point it's a full sql statement with values where ? are
 
             int checkInsert = ps.executeUpdate(); // INSERT, UPDATE or DELETE
@@ -85,7 +85,7 @@ public class MemberDao implements Crudable<Member> {
             ResultSet rs = ps.executeQuery();
 
             if(!rs.next()){
-                throw new InvalidUserInputException("Enter information is incorrect for login, please try agian");
+                throw new InvalidUserInputException("Enter information is incorrect for login, please try again");
             }
 
             Member member = new Member();
