@@ -1,8 +1,8 @@
 package com.revature.byron_fedele_p0.util;
 
 import com.revature.byron_fedele_p0.daos.MemberDao;
-//import com.revature.byron_fedele_p0.menus.DashboardMenu;
-//import com.revature.byron_fedele_p0.menus.LoginMenu;
+import com.revature.byron_fedele_p0.menus.DashboardMenu;
+import com.revature.byron_fedele_p0.menus.LoginMenu;
 import com.revature.byron_fedele_p0.menus.RegisterMenu;
 
 import com.revature.byron_fedele_p0.menus.WelcomeMenu;
@@ -28,13 +28,13 @@ public class AppState {
 
         WelcomeMenu welcomeMenu = new WelcomeMenu(terminalReader, menuRouter, memberService); // , memberService will be final parameter here
         RegisterMenu registerMenu = new RegisterMenu(terminalReader, menuRouter, memberService);
-        //DashboardMenu dashboardMenu = new DashboardMenu(terminalReader, menuRouter, memberService);
-        //LoginMenu loginMenu = new LoginMenu(terminalReader, menuRouter, memberService);
+        DashboardMenu dashboardMenu = new DashboardMenu(terminalReader, menuRouter, memberService);
+        LoginMenu loginMenu = new LoginMenu(terminalReader, menuRouter, memberService);
 
         menuRouter.addMenu(welcomeMenu); //
         menuRouter.addMenu(registerMenu);
-        //menuRouter.addMenu(dashboardMenu);
-        //menuRouter.addMenu(loginMenu);
+        menuRouter.addMenu(dashboardMenu);
+        menuRouter.addMenu(loginMenu);
 
         customLogger.info("Application initialized");
 

@@ -47,18 +47,15 @@ public class MemberService {
             return null;
         }
     }
-
     public Member login(String email, String password){
         Member member = memberDao.loginCredentialCheck(email, password);
         sessionMember = member;
         return member;
     }
-
     public List<Member> readAll(){
         List<Member> members = memberDao.findAll();
         return members;
     }
-
     public boolean isMemberValid(Member newMember){
         if(newMember == null) return false;
         // this || is the expression to signify to the conditional that if either of these are true then perform the action
@@ -66,7 +63,6 @@ public class MemberService {
         if(newMember.getPassword() == null || newMember.getPassword().trim().equals("")) return false;
         return true;
     }
-
     public boolean isEmailAvailable(String email){
         List<Member> members = readAll();
         for(int i = 0; i < members.size(); i++){
@@ -77,15 +73,12 @@ public class MemberService {
         }
         return true;
     }
-
     public Member getSessionMember(){
         return sessionMember;
     }
-
     public void logout(){
         sessionMember = null;
     }
-
     public boolean isSessionActive(){
         return sessionMember != null;
     }

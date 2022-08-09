@@ -71,7 +71,6 @@ public class CustomLogger {
                 System.out.println(ANSI_RED + message + ANSI_RESET);
                 break;
         }
-
     }
 
     /*the following methods [info,warn,error,fatal] will log and print to console the activity that occurs as the program is running
@@ -89,7 +88,6 @@ public class CustomLogger {
         logMessageToFile(formattedMessage);
         if (printToConsole) printMessageToConsole("WARN", formattedMessage);
     }
-
     public void error(String message, Object... extra) {
         String formattedMessage = formatMessage("ERROR", String.format(message, extra));
         logMessageToFile(formattedMessage);
