@@ -1,5 +1,4 @@
 package com.revature.byron_fedele_p0.menus;
-
 import com.revature.byron_fedele_p0.models.Member;
 import com.revature.byron_fedele_p0.services.MemberService;
 import com.revature.byron_fedele_p0.util.CustomLogger;
@@ -7,7 +6,6 @@ import com.revature.byron_fedele_p0.util.MenuRouter;
 import com.revature.byron_fedele_p0.util.ConnectionFactory;
 import com.revature.byron_fedele_p0.util.exceptions.InvalidUserInputException;
 import java.util.concurrent.TimeUnit;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -109,7 +107,6 @@ public class DashboardMenu extends Menu{
                 else{
                     System.out.println("Your deposit amount has to be greater than zero");
                     menuRouter.transfer("/dashboard");
-
                 }
                 break;
             case "3":

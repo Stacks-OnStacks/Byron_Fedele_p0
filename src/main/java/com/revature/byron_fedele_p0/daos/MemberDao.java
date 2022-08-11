@@ -121,8 +121,10 @@ public class MemberDao implements Crudable<Member> {
 
             ResultSet rs = ps.executeQuery();
 
-            if(!rs.next()){
+            if(!rs.next()) {
+                //return null;
                 throw new InvalidUserInputException("Enter information is incorrect for login, please try again");
+
             }
             Member member = new Member();
             member.setEmail(rs.getString("email"));
