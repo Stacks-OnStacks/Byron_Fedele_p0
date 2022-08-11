@@ -1,5 +1,5 @@
-package com.revature.byron_fedele_p0.models;
-import java.sql.Date;
+package com.revature.byron_fedele_p0.member;
+
 public class Member {
     private String email;
     private String password;

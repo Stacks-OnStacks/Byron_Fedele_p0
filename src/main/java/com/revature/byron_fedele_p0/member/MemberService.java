@@ -1,17 +1,13 @@
-package com.revature.byron_fedele_p0.services;
+package com.revature.byron_fedele_p0.member;
 
-import com.revature.byron_fedele_p0.daos.MemberDao;
-import com.revature.byron_fedele_p0.models.Member;
-import com.revature.byron_fedele_p0.util.customCollections.List;
-import com.revature.byron_fedele_p0.util.CustomLogger;
 import com.revature.byron_fedele_p0.util.exceptions.InvalidUserInputException;
 import com.revature.byron_fedele_p0.util.exceptions.ResourcePersistanceException;
 
-import java.io.*;
+import java.util.List;
 
 public class MemberService {
     // Attributes
-    CustomLogger customLogger = CustomLogger.getLogger(true); // same exact instance of the logger being pull in the menus
+
     private final MemberDao memberDao;
     private Member sessionMember = null;
 
@@ -36,26 +32,31 @@ public class MemberService {
             return newMember;
 
         } catch (InvalidUserInputException | ResourcePersistanceException e) {
-
-            customLogger.warn(e.getMessage());
+            // TODO: NEW READ ME (Lines 38-41)
             return null;
         } catch (RuntimeException e){
-            customLogger.warn(e.getMessage());
             return null;
         } catch (Exception e) {
-            customLogger.warn(e.getMessage());
             return null;
         }
     }
+    // TODO: NEW READ ME (Lines 43-73)
     public Member login(String email, String password){
         Member member = memberDao.loginCredentialCheck(email, password);
         sessionMember = member;
         return member;
     }
+
+    // TODO: NEW READ ME (Lines 76 - 105)
     public List<Member> readAll(){
-        List<Member> members = memberDao.findAll();
+        List<Member> members = (List<Member>) memberDao.findAll();
         return members;
     }
+
+    public Member findById(String email){
+        return memberDao.findById(email);
+    }
+
     public boolean isMemberValid(Member newMember){
         if(newMember == null) return false;
         // this || is the expression to signify to the conditional that if either of these are true then perform the action
@@ -63,6 +64,8 @@ public class MemberService {
         if(newMember.getPassword() == null || newMember.getPassword().trim().equals("")) return false;
         return true;
     }
+
+    // TODO: IMPLEMENT MEEEEEEE!!!!!!!
     public boolean isEmailAvailable(String email){
         List<Member> members = readAll();
         for(int i = 0; i < members.size(); i++){
@@ -73,12 +76,15 @@ public class MemberService {
         }
         return true;
     }
+
     public Member getSessionMember(){
         return sessionMember;
     }
+
     public void logout(){
         sessionMember = null;
     }
+
     public boolean isSessionActive(){
         return sessionMember != null;
     }

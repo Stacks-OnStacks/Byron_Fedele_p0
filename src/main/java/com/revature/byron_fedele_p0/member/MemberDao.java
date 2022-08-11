@@ -1,6 +1,7 @@
-package com.revature.byron_fedele_p0.daos;
+package com.revature.byron_fedele_p0.member;
 
-import com.revature.byron_fedele_p0.models.Member;
+import com.revature.byron_fedele_p0.daos.Crudable;
+import com.revature.byron_fedele_p0.member.Member;
 import com.revature.byron_fedele_p0.util.ConnectionFactory;
 import com.revature.byron_fedele_p0.util.customCollections.LinkedList;
 import com.revature.byron_fedele_p0.util.customCollections.List;
@@ -8,7 +9,6 @@ import com.revature.byron_fedele_p0.util.CustomLogger;
 import com.revature.byron_fedele_p0.util.exceptions.InvalidUserInputException;
 import com.revature.byron_fedele_p0.util.exceptions.ResourcePersistanceException;
 
-import java.io.*;
 import java.sql.*;
 
 public class MemberDao implements Crudable<Member> {

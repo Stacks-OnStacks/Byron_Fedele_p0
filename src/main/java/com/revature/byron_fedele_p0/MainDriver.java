@@ -4,31 +4,17 @@ package com.revature.byron_fedele_p0;
 and make basic withdrawal and deposit transactions
 */
 
-/*
-any imports that are commented are to be implemented later
-import com.revature.byron_fedele_p0.menus.DashboardMenu;
-import com.revature.byron_fedele_p0.menus.RegisterMenu;
-import com.revature.byron_fedele_p0.models.Member;
-*/
-
-import com.revature.byron_fedele_p0.util.MenuRouter;
-import com.revature.byron_fedele_p0.menus.WelcomeMenu;
-import com.revature.byron_fedele_p0.util.AppState;
-
-import java.io.*;
-import java.time.LocalDateTime;
-import java.util.Date;
-
+import com.revature.byron_fedele_p0.util.ServletContext;
 
 public class MainDriver {
 
-
     public static void main(String[] args) {
-        System.out.println("This is a test to see if this pushed to new branch");
-        AppState appState = new AppState();
-        appState.startup();
+
+        ServletContext servletContext = new ServletContext();
+        servletContext.run();
+
     }
-
-
-
 }
+
+
+
