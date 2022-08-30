@@ -1,7 +1,6 @@
 package com.revature.byron_fedele_p0.member;
 
-import com.revature.byron_fedele_p0.daos.Crudable;
-import com.revature.byron_fedele_p0.member.Member;
+import com.revature.byron_fedele_p0.util.interfaces.Crudable;
 import com.revature.byron_fedele_p0.util.ConnectionFactory;
 import com.revature.byron_fedele_p0.util.customCollections.LinkedList;
 import com.revature.byron_fedele_p0.util.customCollections.List;

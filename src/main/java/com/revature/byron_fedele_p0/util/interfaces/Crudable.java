@@ -1,4 +1,4 @@
-package com.revature.byron_fedele_p0.daos;
+package com.revature.byron_fedele_p0.util.interfaces;
 import com.revature.byron_fedele_p0.util.customCollections.List;
 
 public interface Crudable<T> { // generic <T> we can use to assign as

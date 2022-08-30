@@ -31,8 +31,8 @@ public class AuthServlet extends HttpServlet {
 
         HttpSession httpSession = req.getSession(true);
         httpSession.setAttribute("authMember", member);
-
         resp.getWriter().write("Welcome back to Fedele Bank " + member.getEmail());
+
     }
 
     @Override
